@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: prometheus
+  namespace: monitoring
+  labels:
+    app: prometheus
+spec:
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      securityContext:
+        runAsUser: 0
+      serviceAccountName: prometheus
+      containers:
+      - image: prom/prometheus:v2.4.3
+        name: prometheus
+        command:
+        - "/bin/prometheus"
+        args:
+        - "--config.file=/etc/prometheus/prometheus.yml"
+        - "--storage.tsdb.path=/prometheus"
+        - "--storage.tsdb.retention=24h"
+        - "--web.enable-admin-api" 
+        - "--web.enable-lifecycle" 
+        ports:
+        - containerPort: 9090
+          protocol: TCP
+          name: http
+        volumeMounts:
+        - mountPath: "/prometheus"
+          subPath: prometheus
+          name: data
+        - mountPath: "/etc/prometheus"
+          name: config-volume
+        resources:
+          requests:
+            cpu: 100m
+            memory: 512Mi
+          limits:
+            cpu: 100m
+            memory: 512Mi
+      volumes:
+      - name: data
+        nfs:
+          path: /k8s/data
+          server: 1.1.1.4
+      - configMap:
+          name: prometheus-config
+        name: config-volume

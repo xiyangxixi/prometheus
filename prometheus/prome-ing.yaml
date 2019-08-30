@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus-ing
+  namespace: monitoring
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    prometheus.io/probe: "true"
+spec:
+  rules:
+  - host: test.prometheus.com
+    http:
+      paths:
+      - backend:
+          serviceName: prometheus
+          servicePort: 9090
