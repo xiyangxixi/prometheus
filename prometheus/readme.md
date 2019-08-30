@@ -1,4 +1,4 @@
-##### 安装以及测试过程
+##### 安装以及测试过程 相关的annotations为true的可不加
 
 1. 准备prometheus.yml文件，并创建configmap，通过这样挂载到pod,方便后续更新
 
