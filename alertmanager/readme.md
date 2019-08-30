@@ -19,3 +19,5 @@
 * 重新加载prometheus配置: curl -X POST "http://prometheus_service_ip:9090/-/reload"
 
 5. 在protheus中查看告警规则，见prometheus-alert-1.png
+
+6. 告警邮件以及resolve邮件,见firing.png和resoled.png
