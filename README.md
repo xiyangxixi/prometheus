@@ -2,6 +2,8 @@
 
 ##### 全文参考:https://www.qikqiak.com/k8s-book/docs/52.Prometheus%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html
 
+##### 全文参考:https://github.com/yunlzheng/prometheus-book?from=singlemessage&isappinstalled=0
+
 ##### grafana 只做数据展示 告警由alertmanager来完成 相关的查询在prometheus进行
 
 
