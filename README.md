@@ -1,4 +1,4 @@
-##### 在k8s上使用prometheus 当前未使用operator
+##### 在k8s上使用prometheus 以及operator
 
 ##### 全文参考:https://www.qikqiak.com/k8s-book/docs/52.Prometheus%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html
 
