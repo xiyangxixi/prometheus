@@ -23,6 +23,7 @@
 ##### service ingress cadvisor监控
 
 * 创建相关的secret: kubectl create secret generic additional-configs --from-file=add.yaml  -n monitoring
+* add.yaml参考:https://github.com/xiyangxixi/prometheus/blob/master/prometheus/prometheus.yml
 * 修改prometheus的部署文件，见prometheus-prometheus.yaml,并部署
 * 这里需要部署一下black-exporter
 * 修改一下prometheus-clusterRole.yaml，见prmetheus-clusterRole.yaml，并部署
